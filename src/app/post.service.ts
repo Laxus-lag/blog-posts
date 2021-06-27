@@ -11,7 +11,7 @@ export class PostService {
 	  return this.listOfPosts;
   }
 
-  deleteDelete(index:number){
+  deletePost(index:number){
 	  this.listOfPosts.splice(index,1);
   }
 
@@ -22,5 +22,5 @@ export class PostService {
   updatePost(index:number,post:Post){
 	  this.listOfPosts[index] =post;
   }
-  
+
 }
