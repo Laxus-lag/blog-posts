@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { PostListComponent } from './post-list/post-list.component';
@@ -13,7 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 const routes: Routes = [
   {
     path: '',
-    redirectTo :'/post-list',
+    redirectTo: '/post-list',
     pathMatch: 'full',
   },
   {
@@ -28,6 +28,10 @@ const routes: Routes = [
     path: 'post-add',
     component: PostEditComponent,
   },
+  {
+    path: 'post-edit/:index',
+    component: PostEditComponent,
+  },
 ];
 
 @NgModule({
@@ -37,12 +41,15 @@ const routes: Routes = [
     PostListComponent,
     PostComponent,
     PostEditComponent,
-    AuthComponent
+    AuthComponent,
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(routes),ReactiveFormsModule,
+    BrowserModule,
+    RouterModule.forRoot(routes),
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
